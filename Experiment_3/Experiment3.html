@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            background-color: rgb(44, 62, 80);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 15px;
+            height: 80px;
+            line-height: 10px;
+        }
+
+        .footer 
+        {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: rgb(44, 62, 80);
+            color: white;
+        }
+
+        body {
+             margin: 0;  
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+
+        }
+
+        .container {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        }
+
+        form, #profile {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 350px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        }
+
+        input, button {
+        padding: 10px;
+        font-size: 16px;
+        }
+
+        button {
+        background: #115aa7;
+        color: white;
+        border: none;
+        cursor: pointer;
+        }
+
+        button:hover {
+        background: #0056b3;
+        }
+        .navbar {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            background-color: rgb(220, 220, 220);
+            padding: 15px;
+            margin-bottom: 20px;
+            column-gap: 10px;
+            font-size: larger;
+            height: 50px;
+            justify-items: center; 
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+            
+        }
+
+        .navbar a:hover {
+            color: rgb(0, 0, 200);
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>HireWay</h1>
+        
+        <p><br>Explore jobs. Build your career.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Jobs</a>
+        <a href="#">Companies</a>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+    </div>
+
+    <div class="container">
+
+        <form id="jobForm">
+        <h2>Job Search Form</h2>
+
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="text" id="role" placeholder="Job Role">
+        <input type="text" id="skills" placeholder="Skills (comma separated)">
+        <input type="text" id="location" placeholder="Location">
+
+        <button type="submit">Create Profile</button>
+        </form>
+
+
+        <div id="profile">
+            <h2>User Profile</h2>
+            <p>No profile yet</p>
+        </div>
+
+    </div>
+
+
+    <script>
+        const form = document.getElementById("jobForm");
+        const profile = document.getElementById("profile");
+
+        form.addEventListener("submit", function(e){
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const role = document.getElementById("role").value;
+            const skills = document.getElementById("skills").value;
+            const location = document.getElementById("location").value;
+
+            profile.innerHTML = "<h2>User Profile</h2>";
+            const p1 = document.createElement("p");
+            p1.textContent = "Name: " + name;
+
+            const p2 = document.createElement("p");
+            p2.textContent = "Email: " + email;
+
+            const p3 = document.createElement("p");
+            p3.textContent = "Role: " + role;
+
+            
+            
+            const skillsArray = skills.split(",");
+            const p4 = document.createElement("p");
+            p4.textContent = "Skills: " + skillsArray.join(" • ");
+
+            const p5 = document.createElement("p");
+            p5.textContent = "Location: " + location;
+
+
+            profile.appendChild(p1);
+            profile.appendChild(p2);
+            profile.appendChild(p3);
+            profile.appendChild(p4);
+            profile.appendChild(p5);
+            form.reset();
+        });
+
+    </script>
+
+
+    <div class="footer">
+        <p>&copy; 2026 HireWay</p>
+    </div>
+    
+</body>
+</html>
