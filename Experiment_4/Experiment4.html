@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        
+        .header {
+            background-color: rgb(44, 62, 80);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 15px;
+            height: 80px;
+            line-height: 10px;
+        }
+
+        .footer 
+        {
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: rgb(44, 62, 80);
+            color: white;
+        }
+
+        #jobForm{
+            width:320px; 
+            padding:20px;
+            background:#f9f9f9;
+            border-radius:10px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+            height:350px;
+            overflow-y:auto; 
+        }
+        #jobForm button
+        {
+            display:block;
+            margin:10px auto;
+            padding:8px 20px;
+        }
+
+        body  {
+            margin: 0;  
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+
+        }
+        
+        #jobForm input,
+        #jobForm textarea{
+            display:block;
+            padding:8px;
+            flex-shrink:0;
+            flex:1;
+            margin:10px 0;
+            width:90%;
+            max-height:500px;
+            overflow-y:auto; 
+
+        }
+
+        .jobCard {
+            border:1px solid #ddd;
+            padding:20px;
+            margin:15px 0;
+            border-radius:12px;
+            box-shadow:0 4px 8px rgba(0,0,0,0.1);
+            background:white;
+            
+        }
+
+        #jobContainer
+        {
+            flex:1;
+            overflow-y:auto;
+            background:white;
+            padding:20px;
+            height:350px;
+            border-radius:12px;
+            box-shadow:0 6px 14px rgba(0,0,0,0.08);
+        }
+
+
+        .company{
+            color:#555;
+            font-weight:bold;
+        }
+        .navbar {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            background-color: rgb(220, 220, 220);
+            padding: 15px;
+            margin-bottom: 20px;
+            column-gap: 10px;
+            font-size: larger;
+            height: 50px;
+            justify-items: center; 
+            align-items: center;
+            border-radius: 4px;
+        }
+
+        .navbar a 
+        {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px;
+        }
+
+        .navbar a:hover 
+        {
+            color: rgb(0, 0, 200);
+        }
+
+        .mainLayout{
+            display:flex;
+            gap:30px;
+            padding:20px 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>HireWay</h1>
+        
+        <p><br>Explore jobs. Build your career.</p>
+    </div>
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Jobs</a>
+        <a href="#">Companies</a>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+    </div>
+
+
+    <div class="mainLayout">
+        <form id="jobForm">
+            <input type="text" id="title" placeholder="Job Title" required>
+            <input type="text" id="company" placeholder="Company Name" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <textarea id="desc" placeholder="Description"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div id="jobContainer"></div>
+
+    </div>
+
+
+
+    <script>
+        var form = document.getElementById("jobForm");
+
+        form.addEventListener("submit", function(e){
+
+            e.preventDefault(); 
+
+            var title = document.getElementById("title").value;
+            var company = document.getElementById("company").value;
+            var location = document.getElementById("location").value;
+            var desc = document.getElementById("desc").value;
+
+            var card = document.createElement("div");
+            card.classList.add("jobCard");
+
+            card.innerHTML = `
+                <h3>${title}</h3>
+                <p class="company">${company}</p>
+                <p class="location">${location}</p>
+                <p>${desc}</p>
+            `;
+
+            document.getElementById("jobContainer").prepend(card);
+
+            form.reset();
+        });
+
+    </script>
+    
+    <div class="footer">
+        <p>&copy; 2026 HireWay</p>
+    </div>
+    
+</body>
+</html>
