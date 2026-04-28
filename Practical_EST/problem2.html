@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        
+        button:hover {
+            background: #91b0d1;
+        }
+        .header {
+            background-color: rgb(44, 62, 80);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 15px;
+            height: 80px;
+            line-height: 10px;
+        }
+        #regForm{
+            align-content: center;
+            align-items: center;
+            text-align: ;
+            display: flex;
+            grid-template-columns: 1fr;
+            overflow-y:auto;
+        }
+
+        .navbar {
+            display: grid; 
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            background-color: rgb(220, 220, 220);
+            padding: 15px;
+            margin-bottom: 20px;
+            column-gap: 10px;
+            font-size: larger;
+            height: 50px;
+            justify-items: center; 
+            align-items: center;
+            border-radius: 4px;
+            
+        }
+
+        #regForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width:200px;
+            
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="header">
+        <h1>Student Registration Form</h1>
+    </div>
+
+
+
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Login</a>
+        <a href="#">Register</a>
+        <a href="#">About</a>
+    </div>
+    <div>
+
+        <form id="regForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="message" placeholder="Message">
+
+
+
+            
+            <button type="submit" id="register">Register</button>
+            
+        </form>
+    </div>
+    
+</body>
+</html>
